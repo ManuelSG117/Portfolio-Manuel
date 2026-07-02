@@ -1,0 +1,45 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "2023 - Presente",
+    title: "Desarrollador Fullstack",
+    company: "CAPASU",
+    description: `
+      <div class="space-y-4">
+        <p class="font-medium text-yellow-500 dark:text-yellow-200 border-b border-gray-700 pb-2 mb-2"> Liderando en la modernización digital de servicios públicos y colaborando en creación de aplicaciones para optimizar procesos y ahorrar costos de producción</p>
+        
+        <ul class="list-none space-y-2">
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">▹</span>
+            <span>Primera App de Pagos de Agua: Contribuí en el desarrollo backend de la primera aplicación de pagos para el servicio de agua en Michoacán, generando un aumento del 10% en ingresos y más de 1k descargas.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">▹</span>
+            <span>Plataforma de Atención Ciudadana: Diseñé e implementé una plataforma web unificada que agilizó la solución de reportes ciudadanos en un 40%, reduciendo además costos operativos en un 20%.</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-yellow-500 mt-1">▹</span>
+            <span>Optimización de Procesos: Desarrollé y gestioné una plataforma para la captura de procesos (lectura, inspecciones, mapeo y revisión de rutas), disminuyendo errores y tiempos de entrega en más de un 40%.</span>
+          </li>
+         
+        </ul>
+      </div>
+    `,
+    link: "https://capasu.gob.mx",
+  },
+]
+---
+
+<section class="mx-auto max-w-4xl">
+
+  <ol class="relative">
+    {
+      EXPERIENCE.map((experience) => (
+        <li>
+          <ExperienceItem {...experience} />
+        </li>
+      ))
+    }
+  </ol>
+</section>

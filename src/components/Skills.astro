@@ -1,0 +1,217 @@
+---
+import HTML from "./icons/HTML.astro";
+import CSS from "./icons/CSS.astro";
+import JavaScript from "./icons/JavaScript.astro";
+
+import Tailwind from "./icons/Tailwind.astro";
+import Firebase from "./icons/Firebase.astro";
+import MySQL from "./icons/MySQL.astro";
+import Git from "./icons/GitHub.astro";
+
+// Definir categorías de habilidades
+const skillCategories = [
+  {
+    category: "Frontend",
+    skills: [
+      { name: "HTML", icon: HTML, level: 90 },
+      { name: "CSS", icon: CSS, level: 85 },
+      { name: "JavaScript", icon: JavaScript, level: 85 },
+  
+      { name: "Tailwind CSS", icon: Tailwind, level: 85 },
+    ]
+  },
+  {
+    category: "Backend",
+    skills: [
+      { name: "Firebase", icon: Firebase, level: 70 },
+      { name: "MySQL", icon: MySQL, level: 65 },
+    ]
+  },
+  {
+    category: "Herramientas",
+    skills: [
+      { name: "Git", icon: Git, level: 80 },
+    ]
+  }
+]
+
+const softSkills = ["Responsive Design", "UI/UX", "RESTful APIs", "Agile/Scrum", "Problem Solving", "Team Collaboration", "Comunicación Efectiva"];
+---
+
+<section id="habilidades" class="w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-16">
+  <h2 class="text-3xl font-bold mb-8 flex gap-x-3 items-center">
+    <span class="text-yellow-500 dark:text-yellow-400">&lt;</span>
+    Habilidades
+    <span class="text-yellow-500 dark:text-yellow-400">/&gt;</span>
+  </h2>
+
+  <!-- Tabs para categorías -->
+  <div class="mb-8 flex flex-wrap gap-3 justify-center">
+    {skillCategories.map((category, index) => (
+      <button 
+        class="skill-tab px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 
+               border border-gray-200/50 dark:border-gray-700/50 
+               hover:bg-yellow-500/10 hover:border-yellow-500/30 hover:shadow-md hover:shadow-yellow-500/5
+               data-[active=true]:bg-gradient-to-r data-[active=true]:from-yellow-500/20 data-[active=true]:to-amber-500/10 
+               data-[active=true]:border-yellow-500/40 data-[active=true]:text-yellow-700 dark:data-[active=true]:text-yellow-400
+               data-[active=true]:shadow-md data-[active=true]:shadow-yellow-500/10"
+        data-index={index}
+        data-active={index === 0}
+        type="button"
+        onclick="return false;"
+      >
+        {category.category}
+      </button>
+    ))}
+    <button 
+      class="skill-tab px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 
+             border border-gray-200/50 dark:border-gray-700/50 
+             hover:bg-yellow-500/10 hover:border-yellow-500/30 hover:shadow-md hover:shadow-yellow-500/5
+             data-[active=true]:bg-gradient-to-r data-[active=true]:from-yellow-500/20 data-[active=true]:to-amber-500/10 
+             data-[active=true]:border-yellow-500/40 data-[active=true]:text-yellow-700 dark:data-[active=true]:text-yellow-400
+             data-[active=true]:shadow-md data-[active=true]:shadow-yellow-500/10"
+      data-index={skillCategories.length}
+      data-active="false"
+      type="button"
+      onclick="return false;"
+    >
+      Otras Habilidades
+    </button>
+  </div>
+
+  <!-- Contenido de las categorías -->
+  <div class="skill-content-container">
+    {skillCategories.map((category, index) => (
+      <div 
+        class="skill-content bg-white/5 dark:bg-gray-800/30 p-6 rounded-2xl backdrop-blur-sm 
+               border border-gray-200/20 dark:border-gray-700/30 shadow-xl shadow-gray-500/5 dark:shadow-black/10 
+               transition-all duration-300 grid grid-cols-1 sm:grid-cols-2 gap-5"
+        data-index={index}
+        style={index === 0 ? "" : "display: none;"}
+      >
+        {category.skills.map((skill) => (
+          <div class="p-4 bg-white/10 dark:bg-gray-700/20 rounded-xl hover:shadow-lg transition-all duration-300 
+                      hover:scale-[1.03] hover:bg-white/15 dark:hover:bg-gray-700/30 border border-white/5 dark:border-gray-700/50">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center gap-3">
+                <div class="p-2 bg-yellow-500/10 rounded-lg">
+                  <skill.icon class="size-5 text-yellow-600 dark:text-yellow-400" />
+                </div>
+                <span class="font-semibold">{skill.name}</span>
+              </div>
+              <span class="text-xs px-3 py-1.5 bg-yellow-500/10 rounded-full text-yellow-700 dark:text-yellow-400 font-medium">{skill.level}%</span>
+            </div>
+            <div class="w-full bg-gray-200/50 dark:bg-gray-700/50 rounded-full h-2 overflow-hidden">
+              <div 
+                class="skill-progress-bar bg-gradient-to-r from-yellow-500 to-amber-500 h-2 rounded-full" 
+                data-level={skill.level}
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        ))}
+      </div>
+    ))}
+    
+    <!-- Contenido de Otras Habilidades -->
+    <div 
+      class="skill-content bg-white/5 dark:bg-gray-800/30 p-6 rounded-2xl backdrop-blur-sm 
+             border border-gray-200/20 dark:border-gray-700/30 shadow-xl shadow-gray-500/5 dark:shadow-black/10 
+             transition-all duration-300"
+      data-index={skillCategories.length}
+      style="display: none;"
+    >
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        {softSkills.map((skill) => (
+          <div class="p-4 bg-white/10 dark:bg-gray-700/20 rounded-xl hover:shadow-lg transition-all duration-300 
+                      hover:scale-[1.03] hover:bg-white/15 dark:hover:bg-gray-700/30 border border-white/5 dark:border-gray-700/50
+                      flex items-center justify-center text-center min-h-[90px]">
+            <span class="font-medium text-sm">{skill}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tabs = document.querySelectorAll('.skill-tab');
+    const contents = document.querySelectorAll('.skill-content');
+    
+    // Función para manejar el cambio de pestañas
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        // Prevenir el comportamiento predeterminado de manera más agresiva
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const tabIndex = tab.getAttribute('data-index');
+        
+        // Update active tab
+        tabs.forEach(t => t.setAttribute('data-active', 'false'));
+        tab.setAttribute('data-active', 'true');
+        
+        // Show corresponding content
+        contents.forEach(content => {
+          if (content.getAttribute('data-index') === tabIndex) {
+            (content as HTMLElement).style.display = content.classList.contains('grid') ? 'grid' : 'block';
+            
+            // Animar las barras de progreso cuando se muestra el contenido
+            if (Number(tabIndex) !== document.querySelectorAll('.skill-content').length - 1) {
+              setTimeout(() => {
+                animateProgressBars(content as HTMLElement);
+              }, 100);
+            }
+          } else {
+            (content as HTMLElement).style.display = 'none';
+          }
+        });
+        
+        // Prevenir el scroll
+        return false;
+      });
+    });
+    
+    // Función para animar las barras de progreso
+    function animateProgressBars(container: HTMLElement) {
+      const bars = container.querySelectorAll('.skill-progress-bar');
+      bars.forEach(bar => {
+        const level = bar.getAttribute('data-level');
+        (bar as HTMLElement).style.width = '0%';
+        
+        // Usar setTimeout para crear un pequeño retraso antes de la animación
+        setTimeout(() => {
+          (bar as HTMLElement).style.transition = 'width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+          (bar as HTMLElement).style.width = `${level}%`;
+        }, 50);
+      });
+    }
+    
+    // Configurar el observador de intersección para animar cuando la sección sea visible
+    const skillsSection = document.getElementById('habilidades');
+    if (skillsSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Obtener el contenido actualmente visible
+            const activeContent = document.querySelector('.skill-content[style*="display: grid"], .skill-content[style*="display: block"]');
+            if (activeContent) {
+              animateProgressBars(activeContent as HTMLElement);
+            }
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      observer.observe(skillsSection);
+    }
+    
+    // Animar las barras de progreso del contenido inicial
+    const activeContent = document.querySelector('.skill-content[style*="display: grid"], .skill-content[style*="display: block"]');
+    if (activeContent) {
+      setTimeout(() => {
+        animateProgressBars(activeContent as HTMLElement);
+      }, 500);
+    }
+  });
+</script>

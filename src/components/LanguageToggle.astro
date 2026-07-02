@@ -1,0 +1,179 @@
+---
+import SpainIcon from "./icons/Spain.astro"
+import USAIcon from "./icons/USA.astro"
+import GlobeIcon from "./icons/Globe.astro"
+
+const LANGUAGES = ["English", "Spanish", "System"]
+---
+
+<div class="relative ml-1 mr-1">
+  <button
+    transition:persist
+    id="language-toggle-btn"
+    class="appearance-none border-none flex hover:scale-125 transition relative"
+  >
+    <span class="sr-only">Choose language</span>
+    <GlobeIcon id="system" class="language-toggle-icon size-5" />
+    <USAIcon id="english" class="language-toggle-icon absolute size-5 top-0 left-0" />
+    <SpainIcon
+      id="spanish"
+      class="language-toggle-icon absolute size-5 top-0 left-0"
+    />
+  </button>
+  <div
+    transition:persist
+    id="languages-menu"
+    class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md"
+  >
+    <ul>
+      {
+        LANGUAGES.map((language) => (
+          <li class="languages-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
+            {language}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  #languages-menu.open {
+    display: inline;
+    animation: scale-up-center 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  }
+
+  @keyframes scale-up-center {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .language-toggle-icon {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .language-toggle-icon.active {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<script is:inline>
+  (function() {
+    // Wait for DOM to be ready
+    document.addEventListener('astro:page-load', initLanguageToggle);
+    
+    // Also initialize on first load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initLanguageToggle);
+    } else {
+      initLanguageToggle();
+    }
+    
+    function initLanguageToggle() {
+      const languagesMenu = document.getElementById("languages-menu");
+      const toggleBtn = document.getElementById("language-toggle-btn");
+      const languageOptions = document.querySelectorAll(".languages-menu-option");
+      const themesMenu = document.getElementById("themes-menu"); // Get the themes menu
+      
+      if (!languagesMenu || !toggleBtn) return;
+      
+      // Update language initially
+      updateLanguage();
+      
+      // Remove any existing event listeners to prevent duplicates
+      const newToggleBtn = toggleBtn.cloneNode(true);
+      toggleBtn.parentNode.replaceChild(newToggleBtn, toggleBtn);
+      
+      // Toggle menu when clicking the button
+      newToggleBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        
+        // Close themes menu if it's open
+        if (themesMenu && themesMenu.classList.contains("open")) {
+          themesMenu.classList.remove("open");
+        }
+        
+        const isClosed = !languagesMenu.classList.contains("open");
+        languagesMenu.classList[isClosed ? "add" : "remove"]("open");
+        
+        // Dispatch event to notify other components
+        document.dispatchEvent(new CustomEvent('languageMenuToggled'));
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!languagesMenu.contains(e.target) && e.target !== newToggleBtn) {
+          languagesMenu.classList.remove("open");
+        }
+      });
+      
+      // Handle language selection
+      languageOptions.forEach((element) => {
+        const newElement = element.cloneNode(true);
+        element.parentNode.replaceChild(newElement, element);
+        
+        newElement.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const selectedLanguage = e.target.innerText.toLowerCase().trim();
+          localStorage.setItem("language", selectedLanguage);
+          updateLanguage();
+          languagesMenu.classList.remove("open");
+        });
+      });
+    }
+
+    function getSystemLanguage() {
+      const userLanguage = navigator.language || navigator.userLanguage;
+      return userLanguage.startsWith('es') ? 'spanish' : 'english';
+    }
+
+    function getLanguagePreference() {
+      if (typeof localStorage !== "undefined") {
+        return localStorage.getItem("language") ?? "system";
+      }
+      return "system";
+    }
+
+    function updateIcon(languagePreference) {
+      document.querySelectorAll(".language-toggle-icon").forEach((element) => {
+        if (element.id === languagePreference) {
+          element.classList.add("active");
+        } else {
+          element.classList.remove("active");
+        }
+      });
+    }
+
+    function updateLanguage() {
+      const languagePreference = getLanguagePreference();
+      const actualLanguage = languagePreference === "system" 
+        ? getSystemLanguage() 
+        : languagePreference;
+      
+      updateIcon(languagePreference);
+      
+      // Update the HTML lang attribute
+      document.documentElement.lang = actualLanguage === "spanish" ? "es" : "en";
+      
+      // Dispatch a custom event that other components can listen for
+      document.dispatchEvent(new CustomEvent('languagechange', { 
+        detail: { 
+          language: actualLanguage,
+          preference: languagePreference 
+        } 
+      }));
+    }
+
+    document.addEventListener('astro:after-swap', updateLanguage);
+  })();
+</script>

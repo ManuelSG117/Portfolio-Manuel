@@ -1,0 +1,661 @@
+---
+import Firebase from "./icons/Firebase.astro";
+import PHP from "./icons/Php.astro";
+import Link from "./icons/Link.astro";
+import LinkButton from "./LinkButton.astro";
+import Kotlin from "./icons/Kotlin.astro";
+import API from "./icons/API.astro";
+import MySQL from "./icons/MySQL.astro";
+import ProjectModal from "./ProjectModal.astro";
+import JavaScript from "./icons/JavaScript.astro";
+import Bootstrap from "./icons/Bootstrap.astro";
+import Swift from "./icons/Swift.astro";
+import GridIcon from "./icons/Grid.astro";
+import ListIcon from "./icons/List.astro";
+import Nextjs from "./icons/Nextjs.astro";
+import GoogleMaps from "./icons/GoogleMaps.astro";
+import Vercel from "./icons/Vercel.astro";
+import Supabase from "./icons/Supabase.astro";
+import JetpackCompose from "./icons/JetpackCompose.astro";
+const TAGS = {
+ FIREBASE: {
+    name: "Firebase",
+    class: "bg-gradient-to-br from-orange-200 to-orange-300 text-orange-800 border border-orange-300 dark:from-orange-900/80 dark:to-orange-700/80 dark:text-orange-300 dark:border-orange-700",
+    icon: Firebase,
+  },
+  PHP: {
+    name: "PHP",
+    class: "bg-gradient-to-br from-indigo-200 to-indigo-300 text-indigo-800 border border-indigo-300 dark:from-indigo-900/80 dark:to-indigo-700/80 dark:text-indigo-300 dark:border-indigo-700",
+    icon: PHP,
+  },
+  KOTLIN: {
+    name: "Kotlin",
+    class: "bg-gradient-to-br from-purple-200 to-purple-300 text-purple-800 border border-purple-300 dark:from-purple-900/80 dark:to-purple-700/80 dark:text-purple-300 dark:border-purple-700",
+    icon: Kotlin,
+  },
+  REST_API: {
+    name: "REST API",
+    class: "bg-gradient-to-br from-sky-200 to-sky-300 text-sky-800 border border-sky-300 dark:from-sky-900/80 dark:to-sky-700/80 dark:text-sky-300 dark:border-sky-700",
+    icon: API,
+  },
+  SQL: {
+    name: "MySQL",
+    class: "bg-gradient-to-br from-blue-200 to-blue-300 text-blue-800 border border-blue-300 dark:from-blue-900/80 dark:to-blue-700/80 dark:text-blue-300 dark:border-blue-700",
+    icon: MySQL,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-gradient-to-br from-yellow-200 to-yellow-300 text-yellow-800 border border-yellow-300 dark:from-yellow-900/80 dark:to-yellow-700/80 dark:text-yellow-300 dark:border-yellow-700",
+    icon: JavaScript, 
+  },
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    class: "bg-gradient-to-br from-blue-200 to-blue-300 text-blue-800 border border-blue-300 dark:from-blue-900/80 dark:to-blue-700/80 dark:text-blue-300 dark:border-blue-700",
+    icon: Bootstrap, 
+  },
+  SWIFT: {
+    name: "SwiftUI",
+    class: "bg-gradient-to-br from-purple-200 to-purple-300 text-purple-800 border border-purple-300 dark:from-purple-900/80 dark:to-purple-700/80 dark:text-purple-300 dark:border-purple-700",
+    icon: Swift 
+  },
+  MAPS: {
+    name: "Maps",
+    class: "bg-gradient-to-br from-green-200 to-blue-300 text-blue-800 border border-blue-300 dark:from-green-900/80 dark:to-blue-700/80 dark:text-blue-300 dark:border-blue-700",
+    icon: GoogleMaps,
+  },
+  NEXTJS: {
+    name: "Next.js",
+    class: "bg-gradient-to-br from-gray-200 to-gray-400 text-gray-800 border border-gray-300 dark:from-gray-900/80 dark:to-gray-700/80 dark:text-gray-300 dark:border-gray-700",
+    icon: Nextjs,
+  },
+  VERCEL: {
+    name: "Vercel",
+    class: "bg-gradient-to-br from-green-200 to-green-300 text-green-800 border border-green-300 dark:from-green-900/80 dark:to-green-700/80 dark:text-green-300 dark:border-green-700",
+    icon: Vercel,
+  },
+  SUPABASE: {
+    name: "Supabase",
+    class: "bg-gradient-to-br from-green-200 to-green-300 text-green-800 border border-green-300 dark:from-green-900/80 dark:to-green-700/80 dark:text-green-300 dark:border-green-700",
+    icon: Supabase,
+  },
+  JETPACK_COMPOSE: {
+    name: "Jetpack Compose",
+    class: "bg-gradient-to-br from-blue-200 to-cyan-300 text-blue-800 border border-blue-300 dark:from-blue-900/80 dark:to-cyan-700/80 dark:text-cyan-300 dark:border-cyan-700",
+    icon: JetpackCompose,
+  },
+  
+};
+
+const PROJECTS = [
+  {
+    title: "CAPASU",
+    subtitle: "Aplicación móvil para el pago de servicios de agua del estado de Michoacán con +1k de descargas en Google Play Store",
+    description:
+      "Colabore estrechamente en todo el desarrollo de la primer aplicación de pagos del servicio de agua del estado de Michoacán."+
+      "Contribuí en la integración de pasarela de pagos segura y sistema de notificaciones en tiempo real." +
+      "Diseño e implementación de API RESTful y webservices con PHP para gestion de reportes y usuarios." +
+      "Apoyo en la implementación de crashlitycs, remote config, analitycs, release monitoring, etc. " +
+      "Contribución en el desarrollo de la UI y UX de la aplicación móvil.",
+
+    link: "https://play.google.com/store/apps/details?id=com.sistemas.capasupay",
+    image: "/projects/capasu.webp",
+    tags: [TAGS.KOTLIN, TAGS.FIREBASE,TAGS.PHP, TAGS.SQL],
+  },
+  {
+    title: "CotizApps",
+    subtitle: "App de cotizaciones con catálogo de productos/clientes, presupuesto y generación de PDFs",
+    description:
+      "Cotizaciones con catálogo de productos/clientes, presupuesto, fechas y estados (pendiente/en progreso/completada)." +
+      "Generación de PDFs con logo de empresa y firma del cliente." +
+      "Reportes de evidencia con fotos, timeline y observaciones (PDF)." +
+      "Base de datos local Room sincronizada con Supabase (PostgreSQL + Storage)." +
+      "Autenticación por email, perfil de empresa con logo.",
+    link: null,
+    image: "/projects/cotizapps.webp",
+    tags: [TAGS.KOTLIN, TAGS.SUPABASE, TAGS.JETPACK_COMPOSE],
+  },
+  {
+    title: "App Servicio Medido de Capasu",
+    subtitle: "Aplicación móvil para gestión procesos de servicios operativos de Capasu",
+    description:
+      "Lideré la construcción de webservices para gestión de lecturas, servicios y reportes." +
+      "Fuí el responsable de tomar estrategias para reducir errores de toma de datos y tiempos de entrega en más de un 40%." +
+      "Diseñé la base de datos optimizada para grandes volúmenes de datos operativos.",
+    link: "https://www.canva.com/design/DAGfAHwmWwg/Oe3Iv36WUCoo6DpGMgJF4w/edit",
+    image: "/projects/Comercial.png",
+    tags: [ TAGS.KOTLIN, TAGS.FIREBASE, TAGS.SQL, TAGS.PHP],
+  },
+  {
+    title: "Flota Capasu",
+    subtitle: "Sistema web para gestión de flota vehicular de Capasu",
+    description:
+    "Fuí responsable del diseño, desarollo y analisis del sistema web, diseño de base de datos y experiencia de usuario." +
+    "Desarrolle reportes los cuales ayudaron al encargado de las flotas a reducir costos operativos en al menos un 10%. " +
+    "Desarrolle notificaciones para mejorar el monitoreo de la flota de vehículos, cuando estos salen de una geozona definida.",      
+    image: "/projects/gps.webp",
+    tags: [TAGS.PHP, TAGS.MAPS, TAGS.FIREBASE, TAGS.SQL, TAGS.BOOTSTRAP],
+  },
+
+  {
+    title: "App Ingresos Capasu",
+    subtitle: "Aplicación para visualización de ingresos de Capasu",
+    description:
+    "Colabore en el desarrollo de Webservices para la integración de datos de ingresos." +
+    "Participe en el desarrollo de la ui y ux de la aplicación." +
+    "Aporte en la creación del paquete de la aplicación en AppleDeveloper." ,
+    image: "/projects/ingresos.webp",
+    tags: [ TAGS.SWIFT, TAGS.SQL,TAGS.PHP],
+  },
+  {
+    title: "Sistema de reportes de Capasu",
+    subtitle: "Plataforma web unificada de atención para los diferentes reportes y seguimiento de reportes de Capasu",
+    description:
+      "Rediseñe e implemente de principio a fin, el desarrollo de backend y front-end." +
+      "Contribuí a estrategias para  para acelerar la solución del reporte en un 40%  mejorando el tiempo de respuesta y ahorrar costos operativos en un 20%. " +
+      "Fuí el principal creador de webservices y Api/REST para gestión reportes para el uso de la aplicación móvil unificandola con el sistema web." +
+      "Lídere el rediseño de reportes para el atlas de riesgo del municipio logrando con el equipo operativo mapear los reportes del ultimo año." ,
+    image: "/projects/reportes.webp",
+    tags: [TAGS.PHP, TAGS.JAVASCRIPT, TAGS.SQL, TAGS.BOOTSTRAP],
+  },
+  {
+    title: "Sistema de Lecturas de Capasu",
+    subtitle:"Plataforma web de mapeo de lecturas, toma de datos y control de lecturistas de Capasu",
+    description:
+      "Fuí el responsable del diseño, desarollo y analisis del sistema web, diseño de base de datos y experiencia de usuario." +
+      "Lideré el desarrollo de estrategias para reducir tiempo en la toma de datos en un 15%." +
+      "Desarrolle en la integración de mapas para la visualización de los medidores y su ubicación." ,
+    image: "/projects/lecturas.png",
+    tags: [TAGS.PHP,TAGS.JAVASCRIPT ,TAGS.SQL, TAGS.BOOTSTRAP],
+  },
+ 
+];
+---
+
+<!-- Add view toggle controls -->
+<div class="flex justify-end items-center gap-2 mb-4 max-w-[1400px] mx-auto px-4">
+  <span class="text-sm text-gray-600 dark:text-gray-400">Vista:</span>
+  <div class="flex bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+    <button 
+      id="bento-view" 
+      class="flex items-center justify-center p-2 rounded-md text-yellow-500 bg-white dark:bg-gray-700 shadow-sm"
+      aria-label="Vista Bento"
+    >
+      <GridIcon class="size-5" />
+    </button>
+    <button 
+      id="list-view" 
+      class="flex items-center justify-center p-2 rounded-md text-gray-500 dark:text-gray-400 hover:text-yellow-500 dark:hover:text-yellow-500"
+      aria-label="Vista Lista"
+    >
+      <ListIcon class="size-5" />
+    </button>
+  </div>
+</div>
+
+<div id="projects-container" class="grid grid-cols-1 md:grid-cols-6 auto-rows-[10rem] gap-4 p-4 max-w-[1400px] mx-auto">
+  {
+    PROJECTS.map(({ image, title, subtitle, description, tags, link }, index) => (
+      <>
+        <article class={`
+          relative group 
+          ${index === 0 ? 'md:col-span-4 md:row-span-2' : ''} 
+          ${index === 1 ? 'md:col-span-2 md:row-span-2' : ''}
+          ${index === 2 ? 'md:col-span-3 md:row-span-2' : ''}
+          ${index === 3 ? 'md:col-span-3 md:row-span-2' : ''}
+          ${index === 4 ? 'md:col-span-2 md:row-span-2' : ''}
+          ${index === 5 ? 'md:col-span-2 md:row-span-2' : ''}
+          ${index === 6 ? 'md:col-span-2 md:row-span-2' : ''}
+          rounded-3xl overflow-hidden
+          bg-gradient-to-br from-black/60 to-black/90 dark:from-white/5 dark:to-white/20
+          backdrop-blur-sm
+          border border-black/10 dark:border-white/10
+          hover:border-yellow-500/50 transition-all duration-500 
+          hover:shadow-lg hover:shadow-yellow-500/50 dark:hover:shadow-lg dark:hover:shadow-yellow-500/20
+          hover:-translate-y-1
+        `}>
+          {/* Modern gradient overlay */}
+          <div class="absolute inset-0 bg-gradient-to-b 
+            from-transparent via-black/20 to-black/60 
+            group-hover:via-black/40 group-hover:to-black/80 
+            transition-colors duration-500 z-10"/>
+          
+          {/* Background image */}
+          <div class="absolute inset-0 z-0">
+            <img
+              alt={title}
+              class="w-full h-full object-cover scale-105 
+                group-hover:scale-110 transition-transform duration-700 ease-out
+                opacity-60 group-hover:opacity-40 group-hover:blur-sm"
+              decoding="async"
+              src={image}
+            />
+          </div>
+
+          {/* Content container */}
+          <div class="relative h-full flex flex-col justify-end p-6 z-20">
+            <h3 class="text-lg md:text-xl font-bold text-white mb-2 
+              tracking-tight translate-y-8 group-hover:translate-y-0 
+              transition-transform duration-300">
+              {title}
+            </h3>
+
+            <p class="text-sm text-gray-300 mb-4 opacity-0 
+              group-hover:opacity-100 translate-y-8 
+              group-hover:translate-y-0 transition-all 
+              duration-300 line-clamp-2">
+              {subtitle}
+            </p>
+
+            {/* Tags */}
+            <div class="flex flex-wrap gap-2 mb-4 translate-y-8 
+              group-hover:translate-y-0 transition-transform duration-300 tags-container">
+              {tags.map((tag) => (
+                <span class="inline-flex items-center px-2 py-1 
+                  text-[10px] rounded-full bg-white/10 
+                  text-white/80 backdrop-blur-sm 
+                  border border-white/10 tag">
+                  <tag.icon class="size-3 mr-1" />
+                  {tag.name}
+                </span>
+              ))}
+            </div>
+
+            {/* Actions */}
+            <div class="flex justify-end gap-2 opacity-0 group-hover:opacity-100 
+              translate-y-8 group-hover:translate-y-0 
+              transition-all duration-300">
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener"
+                  class="px-3 py-1.5 text-xs rounded-full
+                    bg-yellow-500/10 backdrop-blur-sm
+                    border border-yellow-500/20 text-yellow-500
+                    hover:bg-yellow-500/20 transition-colors duration-300"
+                >
+                  <Link class="size-3 inline-block mr-1" />
+                  Demo
+                </a>
+              )}
+              
+              <button 
+                class="px-3 py-1.5 text-xs rounded-full
+                  bg-white/10 backdrop-blur-sm
+                  border border-white/10 text-white
+                  hover:bg-white/20 transition-colors duration-300"
+                data-modal-target={`modal-${index}`}
+              >
+                Ver más
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <ProjectModal id={`modal-${index}`}>
+          <div class="grid gap-6 relative">
+         
+            <h3 class="text-2xl font-bold   text-gray-700   dark:text-white/90 break-words">
+              {title}
+            </h3>
+
+            {/* <h5 class=" text-gray 500 dark:text-white/80 break-words">
+              {subtitle}
+            </h5> */}
+
+            <div class="space-y-4">
+              {description.split(/\.(?=\s*[A-Z])/).map((item) => {
+                if (!item.trim()) return null;
+                return (
+                  <div class="flex items-start gap-3">
+                    <span class="flex-shrink-0 p-1 bg-yellow-500/10 rounded-full mt-1">
+                      <div class="w-2 h-2 rounded-full bg-yellow-500/80" />
+                    </span>
+                    <p class="text-sm text-gray-500 dark:text-gray-300">
+                      {item.trim() + (item.trim().endsWith('.') ? '' : '.')}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+               {/* Image container with gradient overlay */}
+               <div class="relative rounded-xl overflow-hidden group">
+              <div class="absolute inset-0 duration-500 z-10"/>
+              <img
+                src={image}
+                alt={title}
+                class="w-full h-64 object-cover
+                  scale-100 group-hover:scale-110
+                  transition-all duration-700 ease-out"
+              />
+            </div>
+            
+            
+            {/* Footer with tags and demo button */}
+            <footer class="flex items-center justify-between pt-6 ">
+              {/* Tags section */}
+              <div class="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span class="inline-flex items-center px-2 py-1 
+                    text-xs rounded-full bg-black/15 dark:bg-white/10 
+                    backdrop-blur-sm border border-black/10 dark:border-white/10
+                    text-gray-600 dark:text-gray-200">
+                    <tag.icon class="size-3 mr-1" />
+                    {tag.name}
+                  </span>
+                ))}
+              </div>
+
+              {/* Demo button */}
+              {link && (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener"
+                  class="px-3 py-1.5 text-xs rounded-full
+                    bg-yellow-500/20 backdrop-blur-sm
+                    border border-yellow-500/30 text-yellow-500
+                    hover:bg-yellow-500/40 transition-colors duration-300
+                    inline-flex items-center gap-2"
+                >
+                  <Link class="size-3" />
+                  <span>Demo</span>
+                </a>
+              )}
+            </footer>
+          </div>
+        </ProjectModal>
+      </>
+    ))
+  }
+</div>
+
+<script>
+  const handleModalOpen = (modal: HTMLDialogElement) => {
+    // Bloquear scroll
+    document.body.style.overflow = 'hidden';
+    
+    modal.classList.add('opacity-0', 'scale-95');
+    modal.showModal();
+    
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0', 'scale-95');
+      });
+    });
+  };
+
+  const handleModalClose = (modal: HTMLDialogElement) => {
+    // Restaurar scroll
+    document.body.style.overflow = 'auto';
+    
+    modal.classList.add('opacity-0', 'scale-95');
+    
+    setTimeout(() => {
+      modal.close();
+      modal.classList.remove('opacity-0', 'scale-95');
+    }, 300);
+  };
+
+  // View toggle functionality
+  const isMobileDevice = () => {
+    return window.innerWidth < 768;
+  };
+
+  const showMobileMessage = () => {
+    // Check if message already exists
+    if (document.getElementById('mobile-view-message')) return;
+    
+    const messageEl = document.createElement('div');
+    messageEl.id = 'mobile-view-message';
+    messageEl.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6';
+    messageEl.innerHTML = `
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-6 max-w-md shadow-xl">
+        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-3">Mejor experiencia en dispositivos más grandes</h3>
+        <p class="text-gray-600 dark:text-gray-300 mb-4">
+          Para mejorar tu experiencia con la visualización de los proyectos, te recomiendo usar un dispositivo con pantalla más grande como una laptop o tablet.
+        </p>
+        <button id="close-mobile-message" class="w-full py-2 px-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-lg transition-colors">
+          Entendido
+        </button>
+      </div>
+    `;
+    
+    document.body.appendChild(messageEl);
+    document.body.style.overflow = 'hidden';
+    
+    document.getElementById('close-mobile-message')?.addEventListener('click', () => {
+      document.body.removeChild(messageEl);
+      document.body.style.overflow = 'auto';
+    });
+  };
+
+  const updateTagsVisibility = (isListView: boolean) => {
+    document.querySelectorAll('#projects-container article').forEach((article) => {
+      const tagsContainer = article.querySelector('.tags-container');
+      if (!tagsContainer) return;
+      
+      const allTags = tagsContainer.querySelectorAll('.tag');
+      allTags.forEach(tag => tag.classList.remove('hidden'));
+      
+      // Add mobile tap indicator
+      const mobileIndicator = article.querySelector('.mobile-tap-indicator');
+      if (isMobileDevice()) {
+        if (!mobileIndicator) {
+          const indicator = document.createElement('div');
+          indicator.className = 'mobile-tap-indicator absolute bottom-3 right-3 w-6 h-6 rounded-full bg-yellow-500/30 flex items-center justify-center animate-pulse z-30';
+          indicator.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>`;
+          article.appendChild(indicator);
+        }
+      } else {
+        if (mobileIndicator) {
+          mobileIndicator.remove();
+        }
+      }
+    });
+  };
+
+  const switchToBentoView = () => {
+    // Solo mostrar mensaje cuando el usuario hace clic en el botón en móvil
+    if (isMobileDevice()) {
+      showMobileMessage();
+      return;
+    }
+    
+    const projectsContainer = document.getElementById('projects-container');
+    const bentoViewBtn = document.getElementById('bento-view');
+    const listViewBtn = document.getElementById('list-view');
+    
+    // Update container classes
+    projectsContainer?.classList.remove('list-view');
+    projectsContainer?.classList.remove('md:grid-cols-1', 'auto-rows-auto', 'gap-8');
+    projectsContainer?.classList.add('md:grid-cols-6', 'auto-rows-[12rem]', 'gap-4');
+    
+    // Update active button styles
+    bentoViewBtn?.classList.add('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+    bentoViewBtn?.classList.remove('text-gray-500', 'dark:text-gray-400');
+    
+    listViewBtn?.classList.remove('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+    listViewBtn?.classList.add('text-gray-500', 'dark:text-gray-400');
+    
+    // Update article classes for bento layout
+    document.querySelectorAll('#projects-container article').forEach((article, index) => {
+      const articleEl = article as HTMLElement;
+      
+      articleEl.classList.remove('md:h-[20rem]');
+      
+      if (index === 0) {
+        articleEl.classList.add('md:col-span-4', 'md:row-span-2');
+      } else if (index === 1) {
+        articleEl.classList.add('md:col-span-2', 'md:row-span-2');
+      } else if (index === 2) {
+        articleEl.classList.add('md:col-span-3', 'md:row-span-2');
+      } else if (index === 3) {
+        articleEl.classList.add('md:col-span-3', 'md:row-span-2');
+      } else if (index === 4 || index === 5 || index === 6) {
+        articleEl.classList.add('md:col-span-2', 'md:row-span-2');
+      }
+    });
+    
+    // Update tags visibility
+    updateTagsVisibility(false);
+    
+    // Save preference
+    localStorage.setItem('projectViewPreference', 'list');
+  };
+  
+  const switchToListView = () => {
+    // Solo mostrar mensaje cuando el usuario hace clic en el botón en móvil
+    if (isMobileDevice()) {
+      showMobileMessage();
+      return;
+    }
+    
+    const projectsContainer = document.getElementById('projects-container');
+    const bentoViewBtn = document.getElementById('bento-view');
+    const listViewBtn = document.getElementById('list-view');
+    
+    // Update container classes
+    projectsContainer?.classList.add('list-view');
+    projectsContainer?.classList.remove('md:grid-cols-6', 'auto-rows-[12rem]');
+    projectsContainer?.classList.add('md:grid-cols-1', 'auto-rows-auto', 'gap-8');
+    
+    // Update active button styles
+    listViewBtn?.classList.add('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+    listViewBtn?.classList.remove('text-gray-500', 'dark:text-gray-400');
+    
+    bentoViewBtn?.classList.remove('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+    bentoViewBtn?.classList.add('text-gray-500', 'dark:text-gray-400');
+    
+    // Reset article classes for list layout
+    document.querySelectorAll('#projects-container article').forEach((article) => {
+      const articleEl = article as HTMLElement;
+      
+      // Remove bento-specific classes
+      articleEl.classList.remove(
+        'md:col-span-4', 'md:col-span-3', 'md:col-span-2',
+        'md:row-span-2'
+      );
+      
+      // Add list-specific classes
+      articleEl.classList.add('md:h-[20rem]');
+    });
+    
+    // Update tags visibility
+    updateTagsVisibility(true);
+    
+    // Save preference
+    localStorage.setItem('projectViewPreference', 'list');
+  };
+
+  // Manejadores de eventos
+  document.addEventListener('DOMContentLoaded', () => {
+    // Abrir modal
+    document.querySelectorAll('[data-modal-target]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const modalId = (e.currentTarget as HTMLElement).getAttribute('data-modal-target');
+        const modal = document.getElementById(modalId!) as HTMLDialogElement;
+        if (modal) handleModalOpen(modal);
+      });
+    });
+
+    // Cerrar modal con botón X
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const modal = (e.target as HTMLElement).closest('dialog') as HTMLDialogElement;
+        if (modal) handleModalClose(modal);
+      });
+    });
+
+    // Cerrar modal con Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const openModal = document.querySelector('dialog[open]') as HTMLDialogElement;
+        if (openModal) {
+          e.preventDefault(); // Prevenir el cierre por defecto
+          handleModalClose(openModal);
+        }
+      }
+    });
+
+    // Cerrar al hacer clic fuera del modal
+    document.querySelectorAll('dialog').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          e.preventDefault();
+          handleModalClose(modal as HTMLDialogElement);
+        }
+      });
+    });
+
+    // Add click event listeners to view toggle buttons
+    const bentoViewBtn = document.getElementById('bento-view');
+    const listViewBtn = document.getElementById('list-view');
+    
+    bentoViewBtn?.addEventListener('click', switchToBentoView);
+    listViewBtn?.addEventListener('click', switchToListView);
+    
+    // Load saved preference or default to bento
+    const savedViewPreference = localStorage.getItem('projectViewPreference');
+    if (savedViewPreference === 'bento') {
+      switchToListView();
+    } else {
+      // Aplicar vista bento sin mostrar el mensaje modal en carga inicial
+      const projectsContainer = document.getElementById('projects-container');
+      const bentoViewBtn = document.getElementById('bento-view');
+      const listViewBtn = document.getElementById('list-view');
+      
+      // Update container classes
+      projectsContainer?.classList.remove('list-view');
+      projectsContainer?.classList.add('grid-cols-1', 'md:grid-cols-4', 'auto-rows-[18rem]');
+      projectsContainer?.classList.remove('md:grid-cols-1', 'auto-rows-auto', 'gap-8');
+      
+      // Update active button styles
+      bentoViewBtn?.classList.add('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+      bentoViewBtn?.classList.remove('text-gray-500', 'dark:text-gray-400');
+      
+      listViewBtn?.classList.remove('bg-white', 'dark:bg-gray-700', 'text-yellow-500', 'shadow-sm');
+      listViewBtn?.classList.add('text-gray-500', 'dark:text-gray-400');
+      
+      // Reset article classes for bento layout
+      document.querySelectorAll('#projects-container article').forEach((article, index) => {
+        const articleEl = article as HTMLElement;
+        
+        // Remove list-specific classes
+        articleEl.classList.remove('md:h-[20rem]');
+        
+        // Apply bento-specific classes based on index
+        if (index === 0) {
+          articleEl.classList.add('md:col-span-2', 'md:row-span-2');
+        } else if (index === 1 || index === 2) {
+          articleEl.classList.add('md:col-span-2', 'md:row-span-1');
+        } else if (index === 3 || index === 5 || index === 6) {
+          articleEl.classList.add('md:col-span-1', 'md:row-span-1');
+        } else if (index === 4) {
+          articleEl.classList.add('md:col-span-2', 'md:row-span-1');
+        }
+      });
+      
+      // Update tags visibility
+      updateTagsVisibility(false);
+    }
+  });
+</script>
+
+<style>
+  /* Additional styles for list view */
+  .list-view article {
+    height: auto !important;
+    min-height: 20rem;
+  }
+  
+  @media (min-width: 768px) {
+    .list-view article {
+      grid-column: 1 / -1 !important;
+      grid-row: auto !important;
+    }
+  }
+</style>

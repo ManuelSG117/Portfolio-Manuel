@@ -1,0 +1,226 @@
+---
+import GitHubIcon from "./icons/GitHub.astro";
+import LinkedInIcon from "./icons/LinkedIn.astro";
+import MailIcon from "./icons/Mail.astro";
+import WhatsappIcon from "./icons/Whatsapp.astro";
+import InstagramIcon from "./icons/Instagram.astro";
+---
+
+<div class="flex flex-col gap-8 mt-8 relative">
+
+  <p class="text-lg text-gray-800 dark:text-gray-300 animate-fade-in text-center max-w-2xl mx-auto">
+   <strong class="text-yellow-500 dark:text-yellow-200"> ¿Interesado en contratarme, trabajar juntos o tienes alguna propuesta?</strong> No dudes en contactarme a través de cualquiera de estos canales:
+  </p>
+  
+  <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 auto-rows-[6.5rem] sm:auto-rows-[8.5rem] md:auto-rows-[12rem] gap-2 sm:gap-3 md:gap-4 mt-8 perspective">
+    <!-- LinkedIn - Large Card -->
+    <div class="social-card group col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-3 flex flex-col justify-between p-2.5 sm:p-3 md:p-6 rounded-lg sm:rounded-xl 
+    bg-gradient-to-br from-blue-500/10 to-blue-600/5 backdrop-blur-sm border border-blue-500/10 dark:border-blue-400/10 
+    hover:bg-blue-500/20 hover:border-blue-500/30 dark:hover:border-blue-400/30 transition-all duration-300 ease-in-out
+    transform hover:-translate-y-1 hover:shadow-lg card-3d">
+  
+    <div class="flex items-center gap-1.5 sm:gap-3">
+      <div
+        class="bg-blue-100 dark:bg-blue-900/30 p-1 sm:p-2 md:p-3 rounded-full group-hover:bg-blue-200 dark:group-hover:bg-blue-800/50 transition-colors duration-300 card-icon shrink-0">
+        <LinkedInIcon class="size-3.5 sm:size-5 md:size-6 text-blue-600 dark:text-blue-400" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3
+          class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors text-xs sm:text-sm md:text-base truncate">
+          LinkedIn</h3>
+        <p class="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 break-words">Manuelsandoval117</p>
+      </div>
+    </div>
+  
+    <!-- LinkedIn card description -->
+    <p class="mt-2 sm:mt-3 md:mt-4 text-gray-600 dark:text-gray-300 text-[9px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-none">Conéctate conmigo para oportunidades profesionales de tecnología y desarrollo.</p>
+  
+    <a href="https://linkedin.com/in/manuelsandoval117" target="_blank" rel="noopener"
+      class="mt-1.5 sm:mt-2 md:mt-4 ml-auto flex items-center text-blue-500 dark:text-blue-400 group-hover:translate-x-1 transition-transform duration-300">
+      <span class="text-[10px] sm:text-xs md:text-sm font-medium">Visitar perfil</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+    </div>
+    
+    <!-- GitHub - Large Card -->
+    <div class="social-card group col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-3 flex flex-col justify-between p-2.5 sm:p-3 md:p-6 rounded-lg sm:rounded-xl 
+    bg-gradient-to-br from-gray-500/20 to-gray-600/10 backdrop-blur-sm border border-gray-500/10 dark:border-gray-400/10 
+    hover:bg-gray-500/20 hover:border-gray-500/30 dark:hover:border-gray-400/30 transition-all duration-300 ease-in-out
+    transform hover:translate-y-[-5px] hover:shadow-lg card-3d">
+    
+    <div class="flex items-center gap-1.5 sm:gap-3">
+      <div class="bg-gray-100 dark:bg-gray-900/30 p-1 sm:p-2 md:p-3 rounded-full group-hover:bg-gray-200 dark:group-hover:bg-gray-800/50 transition-colors duration-300 card-icon shrink-0">
+        <GitHubIcon class="size-3.5 sm:size-5 md:size-6 text-gray-700 dark:text-gray-300" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3 class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors text-xs sm:text-sm md:text-base truncate">GitHub</h3>
+        <p class="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 break-words">ManuelSG117</p>
+      </div>
+    </div>
+    
+    <!-- GitHub card description -->
+    <p class="mt-2 sm:mt-3 md:mt-4 text-gray-600 dark:text-gray-300 text-[9px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-none">Conoce mi experiencia y habilidades de desarrollo, y cómo puedo contribuir a tu proyecto...</p>
+    
+    <a href="https://github.com/ManuelSG117" target="_blank" rel="noopener"
+      class="mt-1.5 sm:mt-2 md:mt-4 ml-auto flex items-center text-gray-700 dark:text-gray-300 group-hover:translate-x-1 transition-transform duration-300">
+      <span class="text-[10px] sm:text-xs md:text-sm font-medium">Ver perfil</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+    </div>
+    
+    <!-- Instagram - Small Card -->
+    <div class="social-card group col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2 order-3 sm:order-3 md:order-5 flex flex-col justify-between p-2.5 sm:p-3 md:p-6 rounded-lg sm:rounded-xl 
+    bg-gradient-to-br from-pink-500/10 to-purple-600/5 backdrop-blur-sm border border-pink-500/10 dark:border-pink-400/10 
+    hover:bg-pink-500/20 hover:border-pink-500/30 dark:hover:border-pink-400/30 transition-all duration-300 ease-in-out
+    transform hover:translate-y-[-5px] hover:shadow-lg card-3d">
+    
+    <div class="flex items-center gap-1.5 sm:gap-3">
+      <div class="bg-pink-100 dark:bg-pink-900/30 p-1 sm:p-2 md:p-3 rounded-full group-hover:bg-pink-200 dark:group-hover:bg-pink-800/50 transition-colors duration-300 card-icon shrink-0">
+        <InstagramIcon class="size-3.5 sm:size-5 md:size-6 text-pink-600 dark:text-pink-400" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3 class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors text-xs sm:text-sm md:text-base truncate">Instagram</h3>
+        <p class="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 break-words">Manuelsandoval117</p>
+      </div>
+    </div>
+    
+    <!-- Instagram card description -->
+    <p class="mt-2 sm:mt-3 md:mt-4 text-gray-600 dark:text-gray-300 text-[9px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-none">Sígueme para ver mis últimas fotos y conocer más sobre mi.</p>
+    
+    <a href="https://instagram.com/manuelsandoval117" target="_blank" rel="noopener"
+      class="mt-1.5 sm:mt-2 md:mt-4 ml-auto flex items-center text-pink-500 dark:text-pink-400 group-hover:translate-x-1 transition-transform duration-300">
+      <span class="text-[10px] sm:text-xs md:text-sm font-medium">Seguir</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+    </div>
+    
+    <!-- WhatsApp - Small Card -->
+    <div class="social-card group col-span-1 sm:col-span-1 md:col-span-2 lg:col-span-2 order-4 sm:order-4 md:order-4 flex flex-col justify-between p-2.5 sm:p-3 md:p-6 rounded-lg sm:rounded-xl 
+    bg-gradient-to-br from-green-500/10 to-green-600/5 backdrop-blur-sm border border-green-500/10 dark:border-green-400/10 
+    hover:bg-green-500/20 hover:border-green-500/30 dark:hover:border-green-400/30 transition-all duration-300 ease-in-out
+    transform hover:translate-y-[-5px] hover:shadow-lg card-3d">
+    
+    <div class="flex items-center gap-1.5 sm:gap-3">
+      <div class="bg-green-100 dark:bg-green-900/30 p-1 sm:p-2 md:p-3 rounded-full group-hover:bg-green-200 dark:group-hover:bg-green-800/50 transition-colors duration-300 card-icon shrink-0">
+        <WhatsappIcon class="size-3.5 sm:size-5 md:size-6 text-green-600 dark:text-green-400" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3 class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors text-xs sm:text-sm md:text-base truncate">WhatsApp</h3>
+        <p class="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 break-words">+52 452 520 32 61</p>
+      </div>
+    </div>
+    
+    <!-- WhatsApp card description -->
+    <p class="mt-2 sm:mt-3 md:mt-4 text-gray-600 dark:text-gray-300 text-[9px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-none">Contáctame rápidamente para cualquier consulta.</p>
+    
+    <a href="https://wa.me/524525203261?text=Hola%20Manuel,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte" target="_blank" rel="noopener"
+      class="mt-1.5 sm:mt-2 md:mt-4 ml-auto flex items-center text-green-500 dark:text-green-400 group-hover:translate-x-1 transition-transform duration-300">
+      <span class="text-[10px] sm:text-xs md:text-sm font-medium">Mensaje</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+    </div>
+    
+    <!-- Email - Large Card -->
+    <div class="social-card group col-span-2 sm:col-span-2 md:col-span-2 lg:col-span-2 order-5 sm:order-5 md:order-3 flex flex-col justify-between p-2.5 sm:p-3 md:p-6 rounded-lg sm:rounded-xl 
+    bg-gradient-to-br from-red-500/10 to-red-600/5 backdrop-blur-sm border border-red-500/10 dark:border-red-400/10 
+    hover:bg-red-500/20 hover:border-red-500/30 dark:hover:border-red-400/30 transition-all duration-300 ease-in-out
+    transform hover:translate-y-[-5px] hover:shadow-lg card-3d">
+    
+    <div class="flex items-center gap-1.5 sm:gap-3">
+      <div class="bg-red-100 dark:bg-red-900/30 p-1 sm:p-2 md:p-3 rounded-full group-hover:bg-red-200 dark:group-hover:bg-red-800/50 transition-colors duration-300 card-icon shrink-0">
+        <MailIcon class="size-3.5 sm:size-5 md:size-6 text-red-600 dark:text-red-400" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3 class="font-medium text-gray-800 dark:text-gray-200 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors text-xs sm:text-sm md:text-base truncate">Gmail</h3>
+        <p class="text-[10px] sm:text-xs md:text-sm text-gray-500 dark:text-gray-400 break-words">Manuelpvp27@gmail.com</p>
+      </div>
+    </div>
+    
+    <!-- Email card description -->
+    <p class="mt-2 sm:mt-3 md:mt-4 text-gray-600 dark:text-gray-300 text-[9px] sm:text-xs md:text-sm line-clamp-2 md:line-clamp-none">Contáctame para propuestas, colaboraciones o consultas.</p>
+    
+    <a href="mailto:manuelpvp27@gmail.com" target="_blank" rel="noopener"
+      class="mt-1.5 sm:mt-2 md:mt-4 ml-auto flex items-center text-red-500 dark:text-red-400 group-hover:translate-x-1 transition-transform duration-300">
+      <span class="text-[10px] sm:text-xs md:text-sm font-medium">Inbox</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-2.5 w-2.5 sm:h-3 sm:w-3 md:h-4 md:w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+      </svg>
+    </a>
+    </div>
+    </div>
+
+<style>
+  /* Base animations */
+  .social-card {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Fix for mobile username display */
+  .social-card .flex.items-center.gap-2,
+  .social-card .flex.items-center.gap-3 {
+    width: 100%;
+  }
+  
+  .social-card .flex.items-center.gap-2 > div:nth-child(2),
+  .social-card .flex.items-center.gap-3 > div:nth-child(2) {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Button container fix */
+  .social-card .ml-auto.flex.items-center {
+    width: auto;
+    white-space: nowrap;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Staggered animation delay for each card */
+  .social-card:nth-child(1) { animation-delay: 0.1s; }
+  .social-card:nth-child(2) { animation-delay: 0.2s; }
+  .social-card:nth-child(3) { animation-delay: 0.3s; }
+  .social-card:nth-child(4) { animation-delay: 0.4s; }
+  .social-card:nth-child(5) { animation-delay: 0.5s; }
+
+  /* Icon animations */
+  .card-icon {
+    transition: all 0.3s ease;
+  }
+  
+  .social-card:hover .card-icon {
+    transform: scale(1.1) rotate(5deg);
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.05);
+    }
+  }
+</style>
+
+
